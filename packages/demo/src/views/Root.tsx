@@ -11,7 +11,7 @@ import { Settings } from "sigma/settings";
 import { drawHover, drawLabel } from "../canvas-utils";
 import { Dataset, FiltersState } from "../types";
 import ClustersPanel from "./ClustersPanel";
-import DescriptionPanel from "./DescriptionPanel";
+// import DescriptionPanel from "./DescriptionPanel";
 import GraphDataController from "./GraphDataController";
 import GraphEventsController from "./GraphEventsController";
 import GraphSettingsController from "./GraphSettingsController";
@@ -50,7 +50,8 @@ const Root: FC = () => {
 
   // Load data on mount:
   useEffect(() => {
-    fetch(`./dataset.json`)
+    // fetch(`./dataset.json`)
+    fetch(`./graph.json`)
       .then((res) => res.json())
       .then((dataset: Dataset) => {
         setDataset(dataset);
@@ -109,7 +110,7 @@ const Root: FC = () => {
               <GraphTitle filters={filtersState} />
               <div className="panels">
                 <SearchField filters={filtersState} />
-                <DescriptionPanel />
+                {/* <DescriptionPanel /> */}
                 <ClustersPanel
                   clusters={dataset.clusters}
                   filters={filtersState}
